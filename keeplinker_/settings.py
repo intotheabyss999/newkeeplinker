@@ -28,9 +28,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-2e2$tpdeqgk2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com', 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app', 'keeplinker.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com', 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app', 'keeplinker.herokuapp.com', '.herokuapp.com', 'keeplinker-e8a8eb66827c.herokuapp.com']
 
 # Application definition
 
@@ -214,6 +214,17 @@ if 'DATABASE_URL' in os.environ:
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://keeplinker-e8a8eb66827c.herokuapp.com',
+    'https://*.herokuapp.com',
+]
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
