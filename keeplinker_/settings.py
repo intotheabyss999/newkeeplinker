@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+import dj_database_url
+from django.core.management.utils import get_random_secret_key
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,13 +25,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2e2$tpdeqgk2'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com' , 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app']
-
+ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com', 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app', 'keeplinker.herokuapp.com']
 
 # Application definition
 
@@ -205,6 +207,13 @@ DATABASES = {
     }
 }
 
+# Heroku database configuration
+if 'DATABASE_URL' in os.environ:
+    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
