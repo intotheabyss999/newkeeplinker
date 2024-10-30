@@ -1,0 +1,113 @@
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* Centers logo and profile icon on sides */
+    align-items: center;
+    padding: 0 0.5rem; /* Equal padding on both sides */
+    height: 80px; /* Ensure the header has enough height */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.keeplinker {
+    font-family: 'Silkscreen', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: #2563EB;
+    margin-top: -0.4rem;
+}
+
+/* Navbar-collapse is used to manage buttons */
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem; /* Space between buttons */
+    margin-right: auto; /* Allows pushing profile icon to the far right */
+}
+
+.nav-item .btn {
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem !important;
+    margin: 0; /* Ensure no margin issues */
+}
+
+.nav-item .btn.add-link {
+    background-color: transparent;
+    color: #2563EB !important;
+}
+
+.nav-item .btn.create-collection {
+    background-color: #2563EB !important;
+    color: #fff !important;
+}
+
+/* Aligning the profile icon to the far right */
+.nav-item .ava {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 0; /* Remove unnecessary margin */
+    margin-top: -5px;
+}
+
+/* Ensure equal distance from the right edge of the page */
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Consistent gap between buttons */
+    padding-right: 2rem; /* Adjust right padding to match logo padding */
+}
+
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .logo {
+        width: 28px;
+    }
+
+    .nav-item .btn {
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-item .ava {
+        margin-left: 0; /* Useless on smaller screens */
+    }
+
+
+    /* .navbar-toggler {
+        margin-left: 2.2rem !important;
+    } */
+}

@@ -1,0 +1,1089 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rammetto+One&family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #2563EB;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    background: linear-gradient(to right, rgba(37, 99, 235, 0.2) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 99, 132, 0.2) 100%);
+    width: 100%;
+}
+
+.container-fluid {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1300px; /* Максимальная ширина, которая вам нужна */
+}
+
+.navbar {
+    background-color: transparent !important;
+    padding: 1rem 0;
+    z-index: 1030;
+}
+
+.navbar-brand {
+    font-family: 'Silkscreen', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2563EB;
+    display: flex;
+    align-items: center;
+    padding: 0;
+}
+
+.logo {
+    width: 32px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.nav-item .nav-link {
+    font-size: 16px;
+    color: #2563EB;
+    padding: 0.5rem 1rem;
+}
+
+.nav-item .btn {
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.75rem 2rem; /* Match padding with Let's try button */
+}
+
+.nav-item .sign-in {
+    background-color: transparent;
+    color: #2563EB;
+    border-radius: 0.5rem; /* Match with Let's try button */
+}
+
+.nav-item .sign-up {
+    background-color: #2563EB;
+    color: #fff !important; /* Ensure text is white */
+    border-radius: 0.5rem; /* Match with Let's try button */
+    border: none;
+}
+
+.content {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(85vh - 56px); /* Subtract the navbar height */
+    padding-top: 4.8rem; /* Reduced top padding */
+    padding-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.first-line, .second-line {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 3.75rem;
+    color: #000;
+    margin-bottom: 1rem;
+}
+
+.blue-text {
+    color: #2563EB;
+    position: relative;
+}
+
+.emoji img {
+    position: absolute;
+    top: -0.6em;
+    right: -0.02em; /* Reduced right margin for correct positioning */
+    width: 1em;
+    height: auto;
+    transform: translateX(50%); /* Adjusted image alignment */
+}
+
+.underline {
+    position: absolute;
+    bottom: -23px;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.additional-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.info-line {
+    font-size: 1.17rem;
+    color: #000000bd;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+}
+
+.additional-info {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.info-line + .info-line {
+    margin-top: 0.25rem !important;
+}
+
+.first-line-additional, .second-line-additional {
+    font-size: 1.25rem;
+    color: #6B7280;
+    margin-bottom: 1rem;
+}
+
+.cta-button-container {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.cta-link {
+    display: inline-block;
+    padding: 15px 15px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    background-color: #2563EB;
+    text-decoration: none;
+    border-radius: 10px;
+    position: relative;
+    overflow: visible;
+    z-index: 1;
+    transition: all 0.3s ease;
+  }
+  
+  .cta-link::before,
+  .cta-link::after,
+  .cta-link span::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 0px solid #2563EB;
+    border-radius: 7px;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  .cta-link::before {
+    animation: wave 2s infinite;
+    background-color: cornflowerblue;
+  }
+  
+  .cta-link::after {
+    animation: wave 2s infinite 2s;
+  }
+  
+  .cta-link span::before {
+    animation: wave 2s infinite 1.2s;
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.5);
+      opacity: 0;
+    }
+  }
+  
+  .cta-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+  }
+  
+  .cta-link:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(37, 99, 235, 0.2);
+  }
+
+/* @keyframes press {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+} */
+
+.decor-on-fire {
+    position: sticky;
+    left: 50%;
+    transform: translateX(-50%); /* Center the image horizontally */
+    top: 80%; /* Adjust this value to vertically align the image with the button */
+    width: 230px; /* Adjust width as needed */
+}
+
+.decor-bubbles {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    z-index: -1;
+    line-height: 0;
+}
+
+.decor-bubbles img {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.how-it-works {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 5vw; /* Adjust this value as needed */
+}
+
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #000;
+    margin-bottom: 3rem;
+}
+
+.step-descriptions {
+    display: flex;
+    align-items: flex-start;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    height: 100%; /* Ensure all steps have the same height */
+}
+
+.step-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.step-text {
+    font-size: 1.25rem;
+    color: #000000bd;
+    text-align: center;
+    flex-grow: 1; /* Allow text to expand and fill available space */
+    display: flex;
+    align-items: center; /* Center text vertically */
+}
+
+.footer-container {
+    padding: 0 30px; /* Те же отступы, что и у header */
+    background: none;
+    display: flex;
+    justify-content: center; /* Центрирует блок футера по горизонтали */
+    align-items: center; /* Центрирует блок футера по вертикали */
+    padding-bottom: 1rem; /* Отступ снизу */
+}
+
+.footer {
+    background: #f8f9fa;
+    color: #212529;
+    padding: 1.5rem 1rem; /* Добавим побольше отступов для мобильных устройств */
+    border-radius: 15px; /* Закругленные углы */
+    width: 100%;
+    max-width: 1200px; /* Ограничим ширину футера для центрирования */
+    margin: 0 auto; /* Центрирование футера */
+    margin-top: 0.5rem; /* Добавим отступ сверху */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Добавим тень для лучшего выделения */
+}
+
+.footer-wrapper {
+  
+        display: flex;
+        justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)); /* Легкий градиент */
+}
+
+
+.footer-top,
+.footer-bottom {
+    padding: 1.5rem 1rem;
+}
+
+.footer-bottom {
+    border-top: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* Унаследуем фон страницы */
+    z-index: -1; /* Разместим ниже всех элементов */
+}
+
+
+.footer-logo img {
+    width: 40px;
+}
+
+.footer-brand {
+    font-weight: 300;
+    font-size: 2.3rem;
+    color: #2563EB;
+    font-family: 'Silkscreen';
+    padding-left: 10px;
+}
+
+.footer-links a {
+    color: #2563EB;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    padding: 1rem;
+}
+
+.social-btn img {
+    display: block;
+    width: 24px;  /* Fixed width */
+    height: 24px; /* Fixed height */
+    flex-shrink: 0 !important; /* Prevent icon from shrinking */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-newsletter-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #2563EB;
+    margin-bottom: 0.5rem;
+}
+
+.footer form {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer form .form-control {
+    flex-grow: 1;
+    border-radius: 0.25rem;
+}
+
+.footer form .btn {
+    background-color: #2563EB;
+    border-color: #2563EB;
+    color: #fff;
+}
+
+.footer-bottom {
+    border-top: 1px solid #dee2e6;
+    margin-top: 2rem;
+}
+
+.footer-bottom .col-md-4 {
+    margin-top: 1rem;
+}
+
+.footer-contact {
+    color: #2563EB;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.footer-contact:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom a {
+    color: #2563EB;
+    text-decoration: none;
+    margin-right: 1rem;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom img {
+    width: 24px;
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 1rem;
+}
+
+.linker {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 285px;
+    height: auto;
+    z-index: 0;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+#header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    width: 100%;
+
+    max-width: 100%;
+
+    background: linear-gradient(to right, rgba(37, 99, 235, 0.2) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 99, 132, 0.2) 100%);
+    backdrop-filter: blur(5px); /* Optional: adds a nice blur effect */
+
+    z-index: 1000;
+
+    transition: transform 0.3s ease-out; 
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+
+}
+
+#header.header-hidden {
+
+    transform: translateY(-100%);
+
+}
+
+/* Add padding to prevent content overlap */
+
+.content {
+
+    padding-top: 120px !important; /* Adjust based on your header height */
+
+}
+/* If you're using container-fluid for content */
+.container-fluid.content {
+    margin-top: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure the background gradient stays in place */
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right, #EEF4FF, #FFE4E4); /* Your current gradient */
+}
+
+#header.header-hidden {
+    transform: translateY(-100%);
+}
+
+@media (max-width: 767.98px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    
+
+    .logo {
+        width: 34px;
+    }
+
+    .first-line, .second-line {
+        font-size: 2rem !important;
+    }
+
+    .info-line {
+        
+        font-size: 1.1rem;
+    }
+
+    .blue-text {
+        font-size: 2.5rem !important;
+    }
+
+    .first-line-additional, .second-line-additional {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .step-text {
+        font-size: 1rem;
+    }
+
+    .footer-keeplinker {
+        font-size: 20px;
+    }
+
+    .navbar-nav .nav-link.btn {
+        margin-right: 0; /* Убираем правый отступ */
+    }
+    
+    .cta-link {
+        margin: 0 auto; /* Центрируем кнопку */
+    }
+}
+
+.keeplinker {
+    color: #2563EB;
+    font-size: 40px;
+    margin-top: -0.4rem;
+}
+
+@media (max-width: 767px) {
+    .keeplinker {
+        font-size: 34px !important; /* Adjusted font size for mobile */
+       line-height: 34px;
+       margin-top: -0.4rem;
+    }
+    .navbar {
+        flex-wrap: nowrap;
+      }
+      
+      .navbar-brand {
+        flex-grow: 1;
+      }
+      
+      .navbar-toggler {
+        order: 1;
+      }
+
+      .signup-form {
+        margin-top: -7rem;
+      }
+
+      .container-fluid.content {
+        margin-top: -3.9rem;
+      }
+      
+      .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: transparent; /* или любой другой цвет фона */
+        padding: 1rem;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+      }
+    
+      .navbar-collapse.collapsing {
+        height: auto;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .container-fluid.content {
+        margin-top: 4rem;
+        position: relative;
+        z-index: 1
+      }
+
+      .form-container {
+        margin-top: 8rem !important;
+      }
+    
+      .navbar-collapse.show {
+        height: auto;
+      }
+    
+      .content {
+        transition: transform 0.3s ease;
+        padding-top: 4rem !important;
+        
+      }
+    
+      body.menu-open .content {
+        transform: translateY(80px); /* Adjust this value based on your menu height */
+      }
+    
+      .navbar-nav .nav-item .nav-link.btn {
+        background-color: transparent;
+        color: #2563EB;
+      }
+    
+      .navbar-nav .nav-item .nav-link.btn.sign-up {
+        background-color: #2563EB;
+        color: #FFFFFF;
+      }
+
+
+      .nav-item .sign-in {
+        background-color: transparent !important;
+       }
+
+       .container-fluid {
+        padding-right: 15px; /* Reduce padding on smaller screens */
+        padding-left: 15px; /* Reduce padding on smaller screens */
+        max-width: 100%; /* Ensure it doesn’t exceed viewport width */
+    }
+    .navbar-nav .nav-link {
+        padding-right: 14px;
+    }
+
+    .first-line, .second-line, .info-line, .cta-link, .footer-links a {
+        padding-right: 14px;
+        box-sizing: border-box; /* Ensure padding is included in the total width */
+    }
+    
+    .decor-bubbles {
+        width: 45%;
+        right: -14px; /* Compensate for the container padding */
+    }
+    
+    .how-it-works {
+        margin-top: 30vw; /* Increase for mobile to ensure it's below the bubbles */
+    }
+
+    .footer-container {
+            padding: 0 20px; /* Уменьшенные отступы на мобильных устройствах */
+    }
+
+    .footer {
+        padding: 1rem;
+        margin-top: 1rem; /* Уменьшим отступ сверху */
+    }
+
+    .stepper-image
+    {
+        display: none;
+    }
+    .footer-top {
+        padding: 1rem 0;
+    }
+
+    .footer-bottom {
+        padding: 0.5rem 0;
+    }
+    .footer-wrapper {
+        display: flex;
+        flex-direction: column; /* Элементы будут располагаться в колонку */
+        align-items: center; /* Центрирует элементы по горизонтали */
+        text-align: center; /* Центрирует текст внутри элементов */
+        padding: 20px; /* Отступы для футера */
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: row; /* Упорядочиваем ссылки в колонку */
+        align-items: center; /* Центрируем ссылки */
+    }
+    
+    .footer-logo, 
+    .footer-links, 
+    .footer-newsletter {
+        width: 100%; /* Элементы занимают всю ширину */
+        margin-bottom: 15px; /* Отступы между элементами */
+    }
+
+    .footer-links a {
+        margin: 5px 0; /* Отступы между ссылками */
+        text-align: center; /* Центрирует текст ссылок */
+    }
+
+    .footer-newsletter {
+        margin-bottom: 15px; /* Отступ под блоком подписки на новости */
+    }
+
+    .decor-on-fire{
+        left: 30% !important;
+        margin-top: 7rem;
+    }
+
+    .stepper-image .img-fluid {
+        display: none;
+    }
+}
+
+.nav-link.btn {
+    margin-right: 30px; /* Added right margin for all buttons */
+}
+
+.nav-link.btn.sign-in {
+    color: #2563EB; /* Set the text color for the Sign In button */
+}
+
+.navbar-toggler {
+    border: 2px solid #2563EB !important; /* Force the border color */
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232563EB' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+}
+
+.blue-text {
+    font-size: 3.75rem;
+    display: inline-block; /* Added to ensure proper block-level behavior */
+}
+
+img {
+    max-width: 100%; /* Ensures images are responsive */
+    height: auto;
+}
+
+.how-it-works {
+    padding: 1rem; /* Reduced padding for mobile */
+}
+
+.additional-info, .step-descriptions, .cta-button-container {
+    flex-wrap: wrap; /* Ensures flex containers wrap on small screens */
+}
+
+.decor-on-fire {
+    max-width: 50%; /* Reduced size for mobile */
+    left: 20%; /* Centered */
+}
+
+.linker {
+    width: 150px; 
+}
+
+.signup-btn {
+    border: none;
+    height: 40px; /* Adjust this value to match your input fields */
+    line-height: 40px;
+    padding: 0 15px;
+}
+
+.form-group input {
+    height: 40px; /* Ensure this matches the button height */
+}
+
+@media (min-width: 768px) {
+    .linker {
+        width: 285px; /* Restored original size for desktop */
+    }
+       .step-descriptions {
+        margin-top: 2rem; /* Add some space between the stepper image and descriptions */
+    }
+    
+    .step {
+        padding: 0 15px; /* Add some horizontal padding between steps */
+    }
+
+    .footer-top {
+        padding-bottom: 2rem; /* Extra space between top and bottom sections */
+    }
+
+    .footer-bottom {
+        padding-top: 1rem;
+    }
+
+    .footer-legal {
+        text-align: right;
+    }
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+
+/* Sign Up Page Styles */
+/* Existing styles */
+.signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 80px - 200px); /* Adjust for header and footer */
+}
+
+/* .form-container {
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 40px 20px; /* Ensure padding on both sides */
+     /* width: 100%;
+    max-width: 400px;
+    position: relative;
+    border: 1px solid blue;
+    margin-top: -3.9rem;
+    
+} */  
+
+.form-container {
+    background: #ffffff;
+    border: 2px solid rgba(171, 171, 171, 0.64); /* Grey border */
+    border-radius: 20px;
+    padding: 40px 20px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    margin-top: -3.9rem;
+}
+
+.form-container::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 62px;
+    height: 32px;
+    background: #ffffff;
+    z-index: 1;
+}
+
+.form-logo {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    /* background: #ffffff; */
+    z-index: 2;
+}
+
+/* New styles for social buttons */
+/* CSS Adjustments */
+
+/* Center the social buttons vertically in the form */
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Ensure the buttons do not expand beyond the size of the image */
+.social-btn {
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 0;
+    border: none;
+    margin-bottom: 10px; /* Add some space between the buttons */
+}
+
+.social-btn img {
+    display: block;
+    width: 20rem;;
+    height: auto;
+}
+
+.social-btn:hover {
+    background-color: transparent;
+}
+
+/* Ensure no extra elements inside the button */
+.social-btn > :not(img) {
+    display: none;
+}
+
+/* Other existing styles */
+.divider {
+    text-align: center;
+    margin: 20px 0;
+    color: #2563EB;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: gray;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #E5E7EB;
+}
+
+.divider::before {
+    left: 0;
+}
+
+.divider::after {
+    right: 0;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Reduce space between form groups */
+    color: #000000bd;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: left; /* Center align the text */
+    /* margin-top: 20px;  */
+    padding: 0.4rem;
+}
+
+
+.form-group input {
+    width: calc(100% - 0.1rem); /* Adjust width for equal padding */
+    padding: 10px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 0 auto; /* Center the input fields */
+}
+
+.form-title{
+color:#000000bd;;
+font-size: 2rem;
+text-align: center;
+}
+
+.form-secondary-text{
+    color:#000000bd;;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Adjustments for the password input container */
+.password-group .password-container {
+    position: relative; /* Позиционирование для дочерних элементов */
+}
+
+.password-group .password-container input {
+    padding-right: -40px; /* Оставьте место для иконки */
+}
+
+.password-group .toggle-password {
+    position: absolute;
+    right: 10px; /* Расположите иконку с правой стороны */
+    top: 50%; /* Вертикальное центрирование иконки */
+    transform: translateY(-50%); /* Центрирование по вертикали */
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2; /* Убедитесь, что иконка находится поверх поля ввода */
+}
+
+.password-group .toggle-password img {
+    width: 24px; /* Определите желаемый размер иконки */
+    height: auto;
+}
+
+
+/* Adjustments for the Sign Up button */
+.signup-btn {
+    padding: 1rem , 1rem; /*Убедитесь, что вы используете одинаковые отступы сверху и снизу 
+    /* max-width: 89px; Определите максимальную ширину кнопки, если нужно */
+    font-family: 'Inter', sans-serif;
+    width: 95%;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background-color: #2563EB;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto 0; /* Центрирование кнопки и отступ сверху */
+    display: block; /* Убедитесь, что кнопка отображается как блок */
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.signup-btn:hover {
+    background-color: #1e4f9b; /* Изменение цвета фона при наведении */
+}
+
+.csignup-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    transform: translate(-50%, -50%);
+}
+
+.signup-btn:hover::before {
+    opacity: 1;
+}
+
+.signup-btn:hover {
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+
+/* Centering terms text */
+.terms {
+    color: gray;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    text-align: center; /* Center align the text */
+    margin-top: 20px; /* Add margin to the top */
+}
+
+/* Container padding adjustments */
+.form-container {
+    padding: 40px 20px; /* Ensure padding on both sides */
+}
+
+

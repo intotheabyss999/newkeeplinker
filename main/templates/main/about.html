@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Keeplinker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main1.css' %}">
+    <link rel="icon" href="{% static 'main/img/logo.svg' %}" type="image/svg+xml">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="container-fluid" id="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="{% if user.is_authenticated %}{% url 'collections_app:collections_list' %}{% else %}/{% endif %}">
+                    <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="logo">
+                    <span class="keeplinker">Keeplinker</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link btn" href="{% url 'collections_app:collections_list' %}">My Collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn" href="{% url 'collections_app:create_collection' %}">Create Collection</a>
+                            </li>
+                            <li class="nav-item btn logout">
+                                <form id="logout-form" action="{% url 'auth_app:logout' %}" method="POST" style="display: none;">
+                                    {% csrf_token %}
+                                </form>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link btn sign-in" href="{% url 'auth_app:signin' %}">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn sign-up" href="{% url 'auth_app:signup' %}">Sign Up</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container-fluid content">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <h1 class="text-center mb-4">About Us</h1>
+                    <p class="info-line">Welcome to <strong>KeepLinker</strong>, your personal digital library for organizing your WEB links and exploring your interests over the internet in a user-friendly way!</p>
+                    
+                    <h2>Our Story</h2>
+                    <p class="info-line">KeepLinker was born from a common frustration: <strong>too many open browser tabs</strong>. As a Software Product Manager from Dnipro, Ukraine, with a voracious appetite for knowledge across various fields, I often found myself overwhelmed by countless tabs. The struggle was real—discovering intriguing content but lacking the time to dive in immediately. The fear of forgetting these valuable resources led to a cluttered browser and a cluttered mind.</p>
+                    
+                    <h2>The Problem with Existing Solutions</h2>
+                    <p class="info-line">While browser bookmarks and other link management platforms exist, they often fall short. Many are plagued by <strong>poor user experience</strong>, making it unnecessarily complicated to save links quickly. Even worse, finding a specific link later can feel like searching for a needle in a haystack. We believed there had to be a better way.</p>
+                    
+                    <h2>The KeepLinker Solution</h2>
+                    <p class="info-line">That's when the idea for KeepLinker struck. Why not create a service that could elegantly solve these universal problems? Drawing from my experience in the software industry and my diverse interests, I set out to develop a platform with a simple, intuitive user experience that empowers users to:</p>
+                    <ul>
+                        <li><strong>Create Themed Link Collections</strong>: Organize your interests into collections like "Free AI Services," "Learning Resources," or any topic you choose.</li>
+                        <li><strong>Add Links with Ease</strong>: Attach links to each collection along with names and descriptions in just a couple of clicks, making it easy to remember what you've saved and why it matters.</li>
+                        <li><strong>Effortless Retrieval</strong>: Find your saved links quickly and intuitively, eliminating the frustration of searching through disorganized bookmarks.</li>
+                        <li><strong>Personalized Homepage</strong>: Enjoy a tailored experience where you can view all your collections and highlight your most important bookmarked links.</li>
+                    </ul>
+                    
+                    <h2>Beyond the Basics</h2>
+                    <p class="info-line">While our current version focuses on these core features, we're bursting with excitement about the future of KeepLinker. We have a roadmap filled with innovative features and constant improvements that will revolutionize how you interact with your digital content. Stay tuned for updates that will take your link management experience to new heights!</p>
+                    
+                    <h2>Our Mission</h2>
+                    <p class="info-line">At KeepLinker, we believe in the power of knowledge and the importance of easy access to information. Our mission is to help you curate your own corner of the internet, transforming chaotic browsing habits into organized, purposeful exploration.</p>
+                    
+                    <h2>Join Us on This Journey</h2>
+                    <p class="info-line">We're excited to grow and evolve with our users. Whether you're a professional researcher, a curious learner, or simply someone who loves to explore the web, KeepLinker is here to enhance your online experience. So grab a cup of tea or coffee, settle in, and start organizing your digital world with KeepLinker. Your journey of discovery begins here!</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-container">
+            <div class="footer">
+                <div class="container">
+                <!-- Footer Top -->
+                <div class="footer-top row py-2">
+                    <!-- Logo and Navigation -->
+                    <div class="col-md-6 d-flex flex-column align-items-start">
+                        <div class="footer-logo d-flex align-items-center mb-3">
+                            <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="me-2">
+                            <span class="footer-brand">KEEPLINKER</span>
+                        </div>
+                        <div class="footer-links d-flex flex-column">
+                            <a href="{% url 'main:terms' %}">Terms & Conditions</a>
+                            <a href="{% url 'main:privacy' %}">Privacy Policy</a>
+                            <a href="#">Contact Us</a>
+                            <a href="{% url 'main:about' %}">About Us</a>
+                        </div>
+                    </div>
+                    <!-- Newsletter -->
+                    <div class="col-md-6">
+                        <h2 class="footer-newsletter-title">Join Our Newsletter</h2>
+                        <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
+                        <form class="d-flex">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+        
+                <!-- Footer Bottom -->
+                <div class="footer-bottom row align-items-center py-2">
+                    <!-- Social Icons -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <a href="#"><img src="{% static 'main/img/facebook.svg' %}" alt="Facebook" class="me-2"></a>
+                        <a href="#"><img src="{% static 'main/img/instagram.svg' %}" alt="Instagram" class="me-2"></a>
+                        <a href="#"><img src="{% static 'main/img/twitter.svg' %}" alt="Twitter"></a>
+                    </div>
+                    <!-- Contact Email -->
+                    <div class="col-md-4 text-center">
+                        <a href="mailto:hello@keeplinker.com" class="footer-contact">hello@keeplinker.com</a>
+                    </div>
+                    <!-- Legal Links -->
+                    <div class="col-md-4 text-center text-md-end">
+                        <a href="#">English</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Legal</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <p class="footer-copyright">© 2024 Keeplinker. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </footer>
+    </div>
+
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <script src="{% static 'main/js/header.js' %}"></script>
+</body>
+</html>

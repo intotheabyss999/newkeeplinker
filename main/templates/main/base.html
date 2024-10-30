@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Keeplinker{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="{% url 'collections_app:collections_list' %}">Collections</a></li>
+                    <li><a href="{% url 'auth_app:profile' %}">Profile</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Block -->
+    <div class="main-content">
+        {% block content %}
+        <!-- Specific page content will be injected here -->
+        {% endblock %}
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Keeplinker. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

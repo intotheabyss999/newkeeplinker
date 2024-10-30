@@ -1,0 +1,30 @@
+{% extends 'base_logged_in.html' %}
+{% load static %}
+
+{% block title %}User Profile - Keeplinker{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'main/css/profile.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="profile-container">
+    <h1 class="profile-title">User Profile: <span class="highlight">{{ user.username }}</span></h1>
+    <section class="profile-details">
+        <h2>Account Information</h2>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Date Joined: {{ user.date_joined|date:"F d, Y" }}</p>
+        <p>Last Login: {{ user.last_login|date:"F d, Y H:i" }}</p>
+    </section>
+    <section class="profile-actions">
+        <a href="{% url 'auth_app:password_change' %}" class="btn btn-primary">Change Password</a>
+        <form method="post" action="{% url 'auth_app:logout' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn-logout">Logout</button>
+        </form>
+    </section>
+</div>
+<img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+<img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+{% endblock %}

@@ -1,0 +1,285 @@
+/* main.css */
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.container-fluid {
+    padding: 0;
+}
+
+/* Header Styles */
+#header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand img.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar-brand .keeplinker {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3498db;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #2c3e50 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #3498db !important;
+}
+
+.btn.sign-in, .btn.sign-up {
+    border-radius: 20px;
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+.btn.sign-in {
+    background-color: transparent;
+    border: 2px solid #3498db;
+    color: #3498db;
+}
+
+.btn.sign-up {
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    color: white;
+}
+
+/* Linker Images */
+.linker {
+    position: fixed;
+    width: 150px;
+    z-index: -1;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.linker:hover {
+    opacity: 1;
+}
+
+.left {
+    left: -20px;
+    bottom: 20px;
+    transform: rotate(-10deg);
+}
+
+.right {
+    right: -20px;
+    bottom: 20px;
+    transform: rotate(10deg);
+}
+
+/* Content Styles */
+.content {
+    padding: 60px 0;
+}
+
+/* Page Title Styles */
+h1.text-center {
+    font-size: 3.5rem;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Section Styles */
+.info-section {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 40px;
+    transition: transform 0.3s ease;
+}
+
+.info-section:hover {
+    transform: translateY(-5px);
+}
+
+/* Section Headings */
+h2 {
+    font-size: 2.2rem;
+    color: #3498db;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Paragraphs */
+p.info-line {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Lists */
+ol, ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+/* Highlighted Sections */
+.highlight-box {
+    background-color: #f8f9fa;
+    border-left: 5px solid #3498db;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+.footer-container {
+    background-color: #2c3e50;
+    color: white;
+    padding: 40px 0 20px;
+}
+
+.footer {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+
+.footer-links a {
+    color: #bdc3c7;
+    margin-right: 20px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #3498db;
+}
+
+.footer-newsletter-title {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.footer form {
+    display: flex;
+}
+
+.footer input[type="email"] {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+}
+
+.footer button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer button:hover {
+    background-color: #2980b9;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer-bottom a {
+    color: #bdc3c7;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #3498db;
+}
+
+.footer-copyright {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #95a5a6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1.text-center {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .info-section {
+        padding: 30px;
+    }
+
+    .linker {
+        width: 100px;
+    }
+
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer form {
+        flex-direction: column;
+    }
+
+    .footer input[type="email"],
+    .footer button {
+        width: 100%;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+}

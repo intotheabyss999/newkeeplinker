@@ -1,0 +1,91 @@
+{% extends 'base_logged_in.html' %}
+{% load static %}
+
+{% block title %}Keeplinker - Collections List{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'main/css/collectionslist.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="main-container">
+    <div class="collection-header container">
+        <h1 class="collection-title">List of your <span class="highlight">Link Collections</span></h1>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search link collection" onkeyup="filterCollections()">
+            <img src="{% static 'main/img/searchbtn.svg' %}" alt="Search Button" class="search-icon">
+        </div>
+    </div>
+
+    <div class="collection-list container" id="collection-list">
+        {% for collection in collections %}
+        <div class="collection-block" data-collection-name="{{ collection.name | lower }}">
+            <img src="{% static 'main/img/' %}{{ collection.image }}" alt="{{ collection.name }} Collection Image">
+            <h3>{{ collection.name }}</h3>
+            <p>{{ collection.links.count }} links</p>
+            <div class="collection-buttons">
+                <a href="{% url 'collections_app:open_collection' collection.id %}" class="btn-primary">Open Collection</a>
+                <button class="btn-secondary" onclick="openAllLinks('{{ collection.id }}')">Open all links</button>
+                <button class="btn-delete" onclick="confirmDelete('{{ collection.id }}')">Delete</button>
+            </div>
+        </div>
+        {% empty %}
+        <p>No collections found.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Confirmation modal -->
+    <div id="delete-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>Do you really want to delete this collection?</p>
+            <div class="modal-buttons">
+                <button id="confirm-yes" class="btn-primary">Yes</button>
+                <button onclick="closeModal()" class="btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Linker Images -->
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+</div>
+{% endblock %}
+
+{% block custom_js %}
+<script>
+    function filterCollections() {
+        var input, filter, collectionList, collectionBlocks, i, txtValue;
+        input = document.querySelector('.search-bar');
+        filter = input.value.toLowerCase();
+        collectionList = document.getElementById("collection-list");
+        collectionBlocks = collectionList.getElementsByClassName("collection-block");
+
+        for (i = 0; i < collectionBlocks.length; i++) {
+            txtValue = collectionBlocks[i].getAttribute('data-collection-name');
+            if (txtValue.includes(filter)) {
+                collectionBlocks[i].style.display = "";
+            } else {
+                collectionBlocks[i].style.display = "none";
+            }
+        }
+    }
+
+    function openAllLinks(collectionId) {
+        // Logic to open all links
+    }
+
+    function confirmDelete(collectionId) {
+        document.getElementById('delete-confirmation-modal').style.display = 'block';
+        
+        document.getElementById('confirm-yes').onclick = function() {
+            // Logic to delete the collection
+            console.log("Collection " + collectionId + " deleted.");
+            closeModal();
+        };
+    }
+
+    function closeModal() {
+        document.getElementById('delete-confirmation-modal').style.display = 'none';
+    }
+</script>
+{% endblock %}

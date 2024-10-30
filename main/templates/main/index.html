@@ -1,0 +1,80 @@
+{% extends 'base_logged_out.html' %}
+{% load static %}
+
+{% block title %}Keeplinker - Home{% endblock %}
+
+{% block extra_head %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NK43XH6L1C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NK43XH6L1C');
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid content">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-8 text-center">
+            <span class="first-line">Easy and
+                <span class="blue-text">
+                    free
+                    <span class="emoji">
+                        <img src="{% static 'main/img/surprised-emoji.svg' %}" alt="Surprised Emoji">
+                    </span>
+                    <img src="{% static 'main/img/pen-drawing.svg' %}" alt="underline" class="underline">
+                </span>
+            </span>
+            <span class="second-line">way to store your WEB links</span>
+        </div>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-md-8 text-center additional-info">
+            <span class="info-line">Stop cluttering your browser with open tabs!</br> 
+                Organize and save your web links by topic for a more streamlined browsing experience.</span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center cta-button-container">
+            <a href="{% url 'auth_app:signup' %}" class="cta-link btn btn-primary">Let's try!</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <img src="{% static 'main/img/on_fire.svg' %}" alt="On Fire" class="decor-on-fire">
+        </div>
+    </div>
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+</div>
+
+<div class="container-fluid decor-bubbles">
+    <img src="{% static 'main/img/Bubbles.svg' %}" alt="Bubbles" class="img-fluid">
+</div>
+
+<section class="how-it-works container-fluid">
+    <h2 class="section-title text-center">How it works?</h2>
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-8 stepper-container">
+            <img src="{% static 'main/img/stepper.svg' %}" alt="Stepper" class="stepper-image img-fluid">
+        </div>
+    </div>
+    <div class="row step-descriptions">
+        <div class="col-12 col-md-4 step text-center">
+            <img src="{% static 'main/img/understepper1.svg' %}" alt="Step 1" class="step-image img-fluid">
+            <p class="step-text">Create link collections based on your interests, like "Free AI Services", "Learning Resources", or any topic you choose!</p>
+        </div>
+        <div class="col-12 col-md-4 step text-center">
+            <img src="{% static 'main/img/understepper2.svg' %}" alt="Step 2" class="step-image img-fluid">
+            <p class="step-text">Add links to your collection with a name and description to easily remember what you've saved!</p>
+        </div>
+        <div class="col-12 col-md-4 step text-center">
+            <img src="{% static 'main/img/understepper3.svg' %}" alt="Step 3" class="step-image img-fluid">
+            <p class="step-text">Relax with a cup of tea or coffee and explore your saved links. Enjoy!</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

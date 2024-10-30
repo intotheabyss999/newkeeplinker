@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Keeplinker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main1.css' %}">
+    <link rel="icon" href="{% static 'main/img/logo.svg' %}" type="image/svg+xml">
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="container-fluid" id="header">
+            <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+                <a class="navbar-brand" href="{% if user.is_authenticated %}{% url 'collections_app:collections_list' %}{% else %}/{% endif %}">
+                    <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="logo">
+                    <span class="keeplinker">Keeplinker</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link btn" href="{% url 'collections_app:collections_list' %}">My Collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn" href="{% url 'collections_app:create_collection' %}">Create Collection</a>
+                            </li>
+                            <li class="nav-item btn logout">
+                                <form id="logout-form" action="{% url 'auth_app:logout' %}" method="POST" style="display: none;">
+                                    {% csrf_token %}
+                                </form>
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link btn sign-in" href="{% url 'auth_app:signin' %}">Sign In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link btn sign-up" href="{% url 'auth_app:signup' %}">Sign Up</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        </header>
+
+        <div class="container-fluid content">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <h1 class="text-center mb-4">Privacy Policy</h1>
+                    <p class="info-line">Your privacy is important to us. This Privacy Policy outlines how we collect, use, and protect your information when you use our link collection service:</p>
+                    <ol>
+                        <li>
+                            <h2>Information Collection</h2>
+                            <p class="info-line">We collect only the information necessary to provide our service, such as your email address and saved links. We do not collect sensitive personal information without your consent.</p>
+                        </li>
+                        <li>
+                            <h2>Data Usage</h2>
+                            <p class="info-line">We use your data solely to provide and improve our link collection service. This includes personalizing your experience and communicating important updates about our platform.</p>
+                        </li>
+                        <li>
+                            <h2>Third-Party Access</h2>
+                            <p class="info-line">We do not sell your personal information to third parties. However, we may share anonymized and aggregated data with third parties for analytical purposes.</p>
+                        </li>
+                        <li>
+                            <h2>Data Security</h2>
+                            <p class="info-line">While we implement reasonable security measures to protect your information, we cannot guarantee the absolute security of your data against unauthorized access or breaches.</p>
+                        </li>
+                        <li>
+                            <h2>Cookies</h2>
+                            <p class="info-line">Our website uses cookies to enhance your user experience by remembering your preferences and improving site functionality. You can disable cookies in your browser settings if you choose.</p>
+                        </li>
+                        <li>
+                            <h2>Changes to Policy</h2>
+                            <p class="info-line">We may update this Privacy Policy at any time without prior notice. Continued use of our service after changes indicates your acceptance of the new terms.</p>
+                        </li>
+                        <li>
+                            <h2>User Rights</h2>
+                            <p class="info-line">You have the right to access, correct, or delete your personal information at any time. If you wish to exercise these rights, please contact us directly.</p>
+                        </li>
+                        <li>
+                            <h2>Disclaimer</h2>
+                            <p class="info-line">We are not responsible for how third-party websites linked through our platform handle your data. We encourage you to review their privacy policies before providing any personal information.</p>
+                        </li>
+                    </ol>
+                    <p class="info-line">Feel free to reach out if you have any questions regarding these terms or policies!</p>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer-container">
+            <div class="footer">
+                <div class="container">
+                <!-- Footer Top -->
+                <div class="footer-top row py-2">
+                    <!-- Logo and Navigation -->
+                    <div class="col-md-6 d-flex flex-column align-items-start">
+                        <divf class="footer-logo d-flex align-items-center mb-3">
+                            <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="me-2">
+                            <span class="footer-brand">KEEPLINKER</span>
+                        </div>
+                        <div class="footer-links">
+                            <a href="{% url 'main:terms' %}">Terms & Conditions</a>
+                            <a href="{% url 'main:privacy' %}">Privacy Policy</a>
+                            <a href="{% url 'main:about' %}">About Us</a>
+                        </div>
+                    </div>
+                    <!-- Newsletter -->
+                    <div class="col-md-6">
+                        <h2 class="footer-newsletter-title">Join Our Newsletter</h2>
+                        <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
+                        <form class="d-flex">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+        
+                <!-- Footer Bottom -->
+                <div class="footer-bottom row align-items-center py-2">
+                    <!-- Social Icons -->
+                    <div class="col-md-4 text-center text-md-start">
+                        <a href="#"><img src="{% static 'main/img/facebook.svg' %}" alt="Facebook" class="me-2"></a>
+                        <a href="#"><img src="{% static 'main/img/instagram.svg' %}" alt="Instagram" class="me-2"></a>
+                        <a href="#"><img src="{% static 'main/img/twitter.svg' %}" alt="Twitter"></a>
+                    </div>
+                    <!-- Contact Email -->
+                    <div class="col-md-4 text-center">
+                        <a href="mailto:hello@keeplinker.com" class="footer-contact">hello@keeplinker.com</a>
+                    </div>
+                    <!-- Legal Links -->
+                    <div class="col-md-4 text-center text-md-end">
+                        <a href="#">English</a>
+                        <a href="#">Privacy</a>
+                        <a href="#">Legal</a>
+                    </div>
+                </div>
+                <!-- Copyright -->
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <p class="footer-copyright">© 2024 Keeplinker. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
+           </div>
+        </footer>
+    </div>
+
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'main/js/script.js' %}"></script>
+    <script src="{% static 'main/js/header.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% extends 'base_logged_in.html' %}
+{% load static %}
+
+{% block title %}Keeplinker - Collection Details{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'main/css/collectiondetails.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="main-container">
+<div class="collection-header container">
+    <div class="collection-head">
+        <h1 class="collection-title">Link Collection: <span class="highlight">{{ collection.name }}</span></h1>
+        
+        <!-- New div wrapping the buttons, search and total-links -->
+        <div class="collection-controls">
+            <div class="topbtns">
+                <button class="openall" onclick="openAllLinks()">Open all</button>
+                <button class="deletebtn" onclick="confirmDelete('{{ collection.id }}')">Delete</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-bar" placeholder="Search links...">
+                <img src="{% static 'main/img/searchbtn.svg' %}" alt="Search Button" class="search-icon">
+            </div>
+            <div id="total-links" class="total-links">Total links: </div>
+        </div>
+    </div>
+</div>
+
+    <div class="collection-list container" id="collection-list">
+        <!-- Links will be dynamically loaded here -->
+    </div>
+
+    <!-- Skeleton loader -->
+    <div id="skeleton-loader" style="display: none;">
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+        <div class="skeleton-card"></div>
+    </div>
+
+    <!-- Loader for infinite scrolling -->
+    <div id="loading" style="display:none; text-align:center; padding:10px;">
+        <img src="{% static 'main/img/loading_spinner.gif' %}" alt="Loading...">
+    </div>
+
+    <!-- Modal for Delete Confirmation -->
+    <div id="delete-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>Do you really want to delete this collection?</p>
+            <div class="modal-buttons">
+                <button id="confirm-yes" class="btn-primary">Yes</button>
+                <button onclick="closeModal()" class="btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Delete Link Confirmation -->
+    <div id="delete-link-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>Do you really want to delete this link?</p>
+            <div class="modal-buttons">
+                <button id="confirm-delete-link-yes" class="btn-primary">Yes</button>
+                <button onclick="closeLinkModal()" class="btn-secondary">No</button>
+            </div>
+        </div>
+    </div>
+
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+</div>
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        // Add this to ensure the AJAX header is set for all fetch requests
+        window.addEventListener('load', function() {
+            var oldFetch = window.fetch;
+            window.fetch = function() {
+                var args = Array.prototype.slice.call(arguments);
+                if (args[1] && typeof args[1] === 'object') {
+                    if (!args[1].headers) {
+                        args[1].headers = {};
+                    }
+                    args[1].headers['X-Requested-With'] = 'XMLHttpRequest';
+                }
+                return oldFetch.apply(window, args);
+            };
+        });
+
+        function openAllLinks() {
+            // Logic to open all links
+        }
+
+        function confirmDelete(collectionId) {
+            // Logic to confirm delete
+        }
+
+        function closeModal() {
+            // Logic to close modal
+        }
+
+        function closeLinkModal() {
+            // Logic to close delete link modal
+        }
+    </script>
+{% endblock %}

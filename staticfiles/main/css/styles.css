@@ -1,0 +1,64 @@
+/* Header styles */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+.header-container .logo {
+    width: 120px;
+}
+
+.header-container nav ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.header-container nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-container nav a:hover {
+    text-decoration: underline;
+}
+
+/* Footer styles */
+.footer-container {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+/* Password change form styles */
+.password-change-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.password-change-container h2 {
+    text-align: center;
+}
+
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+}

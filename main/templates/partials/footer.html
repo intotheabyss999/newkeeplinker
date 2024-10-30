@@ -1,0 +1,57 @@
+{% load static %}
+<footer class="footer-container">
+    <div class="footer">
+        <div class="container">
+        <!-- Footer Top -->
+        <div class="footer-top row py-2">
+            <!-- Logo and Navigation -->
+            <div class="col-md-6 d-flex flex-column align-items-start">
+                <div class="footer-logo d-flex align-items-center mb-3">
+                    <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="me-2">
+                    <span class="footer-brand">KEEPLINKER</span>
+                </div>
+                <div class="footer-links">
+                    <a href="{% url 'main:terms' %}">Terms & Conditions</a>
+                    <a href="{% url 'main:privacy' %}">Privacy Policy</a>
+                    <a href="{% url 'main:about' %}">About Us</a>
+                </div>
+            </div>
+            <!-- Newsletter -->
+            <div class="col-md-6">
+                <h2 class="footer-newsletter-title">Join Our Newsletter</h2>
+                <p>Be the first to know about our latest updates, exclusive offers, and more.</p>
+                <form class="d-flex">
+                    <input type="email" class="form-control" placeholder="Enter your email">
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom row align-items-center py-2">
+            <!-- Social Icons -->
+            <div class="col-md-4 text-center text-md-start">
+                <a href="#"><img src="{% static 'main/img/facebook.svg' %}" alt="Facebook" class="me-2"></a>
+                <a href="#"><img src="{% static 'main/img/instagram.svg' %}" alt="Instagram" class="me-2"></a>
+                <a href="#"><img src="{% static 'main/img/twitter.svg' %}" alt="Twitter"></a>
+            </div>
+            <!-- Contact Email -->
+            <div class="col-md-4 text-center">
+                <a href="mailto:hello@keeplinker.com" class="footer-contact">hello@keeplinker.com</a>
+            </div>
+            <!-- Legal Links -->
+            <div class="col-md-4 text-center text-md-end">
+                <a href="#">English</a>
+                <a href="#">Privacy</a>
+                <a href="#">Legal</a>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <p class="footer-copyright">© 2024 Keeplinker. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+   </div>
+</footer>

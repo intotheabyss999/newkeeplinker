@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block styles %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main1.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/common_logged_in.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    
+{% block custom_css %}{% endblock %}
+
+{% endblock %}
+
+{% block header %}
+    {% include 'partials/header_logged_in.html' %}
+{% endblock %}
+
+{% block content %}
+    <!-- The page-specific content will go here -->
+    {% block page_content %}{% endblock %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'partials/footer.html' %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    {% block custom_js %}{% endblock %} <!-- Placeholder for page-specific JS -->
+{% endblock %}

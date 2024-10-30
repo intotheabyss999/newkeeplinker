@@ -1,0 +1,43 @@
+{% extends 'base_logged_in.html' %}
+{% load static %}
+
+{% block title %}Keeplinker - Create Collection{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="container-fluid newcollection">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 content-wrapper">
+            <h1 class="mb-4">We're <span class="orange">creating</span> the new <span class="highlight">link collection!</span></h1>
+
+            <div class="collection-form mb-4">
+                <h2 class="mb-3">Create your own collection <span class="orange">name</span></h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.name }}
+                    <button class="save-btn mt-3" type="submit">Save</button>
+                </form>
+            </div>
+
+            <div class="description">
+                <p>
+                    Think of a 'Link Collection' as <span class="highlight">your organized hub for saving links!</span>
+                </p>
+                <p>It's like creating a folder for a specific topic. For instance, <span class="orange">you can make a collection</span> called 'Free AI Services' <span class="orange">and keep all related links inside.</span></p>
+                <p>
+                    Just give your collection a name, and you're good to go! After that, <span class="highlight">you can easily start saving your links within the collection.</span>
+                </p>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-12 d-flex justify-content-center align-items-center">
+            <img src="{% static 'main/img/falling_human.svg' %}" alt="Falling Human" class="falling-human img-fluid">
+        </div>
+    </div>
+</div>
+
+<img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+<img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+{% endblock %}

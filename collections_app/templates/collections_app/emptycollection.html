@@ -1,0 +1,41 @@
+{% extends 'base_logged_in.html' %}
+{% load static %}
+
+{% block title %}Keeplinker - Empty Collection{% endblock %}
+
+{% block custom_css %}
+<link rel="stylesheet" href="{% static 'main/css/emptycollection.css' %}">
+{% endblock %}
+
+{% block page_content %}
+<div class="main-container">
+    <div class="emptycollection">
+        <h1 class="collection-title"><span class="highlight">Link collection:</span> {{ collection.name }}</h1>
+        <div class="contentempty">
+            <div class="centered-text">
+                <span class="first-line">Let's add your first</span><br>
+                <span class="second-line">
+                    <span class="blue-text">link<span class="underline-container"><img src="{% static 'main/img/pen-drawing.svg' %}" alt="underline" class="underline"></span></span> to this collection!
+                </span>
+            </div>
+            <img src="{% static 'main/img/emtycollection.svg' %}" alt="Empty Collection" class="emptycollection-img">
+            <div class="cta1-button">
+                <a href="{% url 'collections_app:add_link' collection.id %}" class="cta-link">Add Link</a>
+            </div>
+        </div>
+        <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+        <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+    </div>
+</div>
+{% endblock %}
+
+{% block custom_js %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NK43XH6L1C"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NK43XH6L1C');
+</script>
+{% endblock %}

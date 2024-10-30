@@ -1,0 +1,19 @@
+{% load static %}
+
+<header class="container">
+    <div class="logo-container">
+        <a href="/" class="home-link" onclick="window.location.href='/'; return false;">
+            <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="logo">
+            <span class="keeplinker">Keeplinker</span>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'auth_app:signin' %}">Log In</a></li>
+            <li class="btn sign-up"><a href="{% url 'auth_app:signup' %}">Sign Up</a></li>
+        </ul>
+    </nav>
+    <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</header>

@@ -1,0 +1,78 @@
+{% extends 'base_logged_out.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}Keeplinker - Sign In{% endblock %}
+
+{% block extra_head %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NK43XH6L1C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NK43XH6L1C');
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid content">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <div class="signup-form">
+                <div class="form-container">
+                    <img src="{% static 'main/img/logo.svg' %}" alt="Keeplinker Logo" class="form-logo">
+                    
+                    <div class="social-buttons">
+                        <a href="{% provider_login_url 'facebook' method='oauth2' %}" class="social-btn facebook-btn">
+                            <img src="{% static 'main/img/facebook-icon.svg' %}" alt="Sign in with Facebook">
+                        </a>
+                        <a href="{% provider_login_url 'google' process='login' %}" class="social-btn google-btn">
+                            <img src="{% static 'main/img/google-icon.svg' %}" alt="Sign in with Google">
+                        </a>
+                    </div>
+                    
+                    <div class="divider">OR</div>
+                    
+                    <form method="POST" action="{% url 'auth_app:signin' %}">
+                        {% csrf_token %}
+                        
+                        {% if error %}
+                            <div class="error-message">
+                                <img src="{% static 'main/img/error-icon.png' %}" alt="Error Icon">
+                                <p>{{ error }}</p>
+                            </div>
+                        {% endif %}
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="username" id="email" placeholder="you@email.com" required>
+                        </div>
+                        
+                        <div class="form-group password-group">
+                            <label for="password">Password</label>
+                            <div class="password-container">
+                                <input type="password" name="password" id="password" required>
+                                <button type="button" class="toggle-password">
+                                    <img src="{% static 'main/img/eye-icon.svg' %}" alt="Show/Hide Password">
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="signup-btn">Sign In</button>
+                    </form>
+                    
+                    <p class="terms">
+                        By Signing Up / Signing In I agree to the 
+                        <a href="{% url 'main:terms' %}">Terms & Conditions</a> and 
+                        <a href="{% url 'main:privacy' %}">Privacy Policy</a> <br />
+                        Forgot your password? <a href="{% url 'auth_app:password_reset' %}">Click here</a> to reset it.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <img src="{% static 'main/img/left_linker.svg' %}" alt="Left Linker" class="linker left">
+    <img src="{% static 'main/img/right_linker.svg' %}" alt="Right Linker" class="linker right">
+</div>
+{% endblock %}
