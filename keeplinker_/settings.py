@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-2e2$tpdeqgk2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://keeplinker.com' , 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app']
+ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com' , 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app']
 
 
 # Application definition
