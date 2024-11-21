@@ -16,10 +16,11 @@ packaging==24.1
 pycparser==2.22
 PyJWT==2.9.0
 python-decouple==3.8
-requests==2.32.3
+requests==2.31.0
 soupsieve==2.6
 sqlparse==0.5.1
 typing_extensions==4.12.2
 urllib3==2.2.3
 whitenoise==6.8.1
 psycopg2==2.9.10
+
