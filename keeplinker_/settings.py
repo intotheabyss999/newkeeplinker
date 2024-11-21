@@ -200,12 +200,33 @@ WSGI_APPLICATION = 'keeplinker_.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',  # Use PostgreSQL engine
+#         'NAME': 'keeplinker_db',  # Replace with your PostgreSQL database name
+#         'USER': 'sergey',  # Your PostgreSQL username
+#         'PASSWORD': '19Serej@92',  # Your PostgreSQL password
+#         'HOST': 'localhost',  # Or the IP address where your PostgreSQL server is running
+#         'PORT': '5432',  # Default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),  # Use Heroku's DATABASE_URL
+        conn_max_age=600,  # Keeps database connections alive longer
+        ssl_require=True   # Enforces SSL for database connections
+    )
 }
+
+
 
 # Heroku database configuration
 if 'DATABASE_URL' in os.environ:
