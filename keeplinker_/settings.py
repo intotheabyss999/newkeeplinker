@@ -31,8 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-2e2$tpdeqgk2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
-DEBUG = True
+DEBUG = os.environ.get('DJANGO_DEBUG', '').lower() in ['true', '1']
+
 
 ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com', 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app', 'keeplinker.herokuapp.com', '.herokuapp.com', 'keeplinker-e8a8eb66827c.herokuapp.com']
 
@@ -247,6 +247,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 CSRF_TRUSTED_ORIGINS = [
     'https://keeplinker-e8a8eb66827c.herokuapp.com',
     'https://*.herokuapp.com',
+    'https://keeplinker.com',
 ]
 
 
@@ -318,44 +319,25 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 
 
 
-
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-        'simple': {
-            'format': '{levelname} {message}',
-            'style': '{',
-        },
-    },
     'handlers': {
-        'console': {
+        'console': {  # Log to the console
             'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-        'file': {
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'django_errors.log',
-            'formatter': 'verbose',
         },
     },
-    'loggers': {
-        'django': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG' if DEBUG else 'ERROR',
-            'propagate': True,
-        },
-        'django.request': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',  # This logs 500 errors from views
-            'propagate': False,
-        },
+    'root': {  # Root logger
+        'handlers': ['console'],  # Use console handler
+        'level': 'DEBUG',  # Log all messages (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    },
+    'django': {  # Django-specific logger
+        'handlers': ['console'],
+        'level': 'DEBUG',  # Adjust as needed
+        'propagate': False,
     },
 }
+
 
 
 

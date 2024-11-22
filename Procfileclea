@@ -1,1 +1,1 @@
-web: gunicorn Keeplinker_.wsgi --log-file -
+web: gunicorn keeplinker_.wsgi --log-file -
