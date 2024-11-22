@@ -1,1 +1,1 @@
-web: gunicorn keeplinker_.wsgi
+web: gunicorn keeplinker_.wsgi:application
