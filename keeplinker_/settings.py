@@ -16,6 +16,9 @@ import os
 import dj_database_url
 from django.core.management.utils import get_random_secret_key
 
+if not os.getenv('DATABASE_URL'):
+    raise ValueError("DATABASE_URL is not set!")
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-2e2$tpdeqgk2')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+# DEBUG = os.environ.get('DJANGO_DEBUG', 'False') == 'True'
+DEBUG = True
 
 ALLOWED_HOSTS = ['.railway.app', 'https://keeplinker.com', 'keeplinker.com', 'www.keeplinker.com', '127.0.0.1', 'localhost', '127.0.0.1:8000', 'eed7-83-46-236-151.ngrok-free.app', 'keeplinker.herokuapp.com', '.herokuapp.com', 'keeplinker-e8a8eb66827c.herokuapp.com']
 
@@ -318,17 +322,56 @@ SOCIALACCOUNT_LOGIN_ON_GET = True
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
         'file': {
             'class': 'logging.FileHandler',
-            'filename': 'django_errors.log',
+            'filename': BASE_DIR / 'django_errors.log',
+            'formatter': 'verbose',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
-            'level': 'ERROR',
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG' if DEBUG else 'ERROR',
             'propagate': True,
+        },
+        'django.request': {
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',  # This logs 500 errors from views
+            'propagate': False,
         },
     },
 }
+
+
+
+if DEBUG:
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'loggers': {
+            'django.db.backends': {
+                'handlers': ['console'],
+                'level': 'DEBUG',
+            },
+        },
+    }
